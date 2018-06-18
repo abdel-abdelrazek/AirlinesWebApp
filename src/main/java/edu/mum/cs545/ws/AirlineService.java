@@ -7,15 +7,19 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.*;
 import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 @Named
-@Path("/airline")
+@Path("airline")
 public class AirlineService {
     @Inject
     private cs545.airline.service.AirlineService airlineService;
 
+    ObjectMapper myPapper = new ObjectMapper();
     @GET
     public String helloWorld(@DefaultValue("Airline Service !!!") @QueryParam("name") String name) {
+        System.out.println("test on service");
         return "Hello " + name + "!";
     }
 
@@ -56,9 +60,13 @@ public class AirlineService {
     }
 
     @GET
-    @Path("/findAll")
-    public List<Airline> findAll() {
-        return airlineService.findAll();
+    @Path("findAll")
+    public String findAll() {
+        try {
+            return myPapper.writeValueAsString(airlineService.findAll());
+        } catch (JsonProcessingException e) {
+            return e.getMessage();
+        }
     }
 
 }
