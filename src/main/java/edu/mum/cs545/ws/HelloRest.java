@@ -18,7 +18,7 @@ public class HelloRest {
 	private AirlineService airlineService;
 
 	@GET
-	public String helloWorld(@DefaultValue("Gorgeous") @QueryParam("name") String name) {
+	public String helloWorld(@DefaultValue("Gorgeous !!!") @QueryParam("name") String name) {
 		return "Hello " + name + "!";
 	}
 
