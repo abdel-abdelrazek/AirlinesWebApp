@@ -6,28 +6,46 @@ import cs545.airline.model.Flight;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 @Named
-@Path("/airline")
+@Path("airline")
 public class AirlineService {
     @Inject
     private cs545.airline.service.AirlineService airlineService;
 
+    ObjectMapper myPapper = new ObjectMapper();
     @GET
     public String helloWorld(@DefaultValue("Airline Service !!!") @QueryParam("name") String name) {
+        System.out.println("test on service");
         return "Hello " + name + "!";
     }
 
     @POST
-    @Path("/create")
-    public void create(Airline airport) {
-        airlineService.create(airport);
+    @Path("create")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public void create(Airline airline) {
+        System.out.println("airline created"+airline.getName());
+            airlineService.create(airline);
+    }
+
+    @DELETE
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("delete")
+    public void delete(Airline airport) {
+        airlineService.delete(airport);
     }
 
     @POST
-    @Path("/delete")
-    public void delete(Airline airport) {
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("delete")
+    public void deletePost(Airline airport) {
         airlineService.delete(airport);
     }
 
@@ -56,9 +74,12 @@ public class AirlineService {
     }
 
     @GET
-    @Path("/findAll")
-    public List<Airline> findAll() {
-        return airlineService.findAll();
+    @Path("findAll")
+    public String findAll() {
+        try {
+            return myPapper.writeValueAsString(airlineService.findAll());
+        } catch (JsonProcessingException e) {
+            return e.getMessage();
+        }
     }
-
 }
