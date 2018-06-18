@@ -14,11 +14,11 @@
 		<class>cs545.airline.model.Flight</class>
 
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sun-appserv-samples;create=true"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/waatest;create=true"/>
 
 			<property name="eclipselink.target-database"
 				value="org.eclipse.persistence.platform.database.DerbyPlatform" />
-			<!--<property name="eclipselink.target-database" value="Auto" />-->
+			<property name="eclipselink.target-database" value="Auto" />
 			
 			<!-- ****** ddl-generation options ****** -->
 			<!-- ****** values ["create-tables", "create-or-extend-tables", "drop-and-create-tables", "none"] -->
