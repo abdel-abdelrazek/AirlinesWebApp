@@ -1,0 +1,23 @@
+.demo-table {   
+	border-collapse:collapse;
+	border-bottom:1px solid gray;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+}
+ 
+.demo-table-header {
+	border-bottom:1px solid gray;
+	background:none repeat scroll 0 0 #66CCFF;
+	padding:10px;
+}
+ 
+.demo-table-odd-row {
+	border-top:1px solid gray;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	text-align:center;
+}
+ 
+.demo-table-even-row {
+	border-top:1px solid gray;
+	background:none repeat scroll 0 0 #F9F9F9;
+	text-align:center;
+}
