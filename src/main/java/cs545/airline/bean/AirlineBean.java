@@ -13,9 +13,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Named("airlineBeanManager")
+@Named("airlineBean")
 @SessionScoped
-public class AirlineBeanManager implements Serializable {
+public class AirlineBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private AirlineService airlineService;
@@ -45,7 +45,7 @@ public class AirlineBeanManager implements Serializable {
 		return airlineService.findAll();
 	}
 
-	public String editAirline(long id) {
+	public String edit(long id) {
 		airline = new Airline();
 		airline.setId(id);
 		airline = airlineService.find(airline);
@@ -53,7 +53,7 @@ public class AirlineBeanManager implements Serializable {
 		return "edit";
 	}
 	
-	public String deleteAirline(long id) {
+	public String delete(long id) {
 		airline = new Airline();
 		airline.setId(id);
 		airline = airlineService.find(airline);
@@ -64,7 +64,7 @@ public class AirlineBeanManager implements Serializable {
 		return "airlineList";
 	}
 	
-	public String createForm() {
+	public String callCreateForm() {
 		this.airline = null;
 		this.name = "";
 		return "editForm";

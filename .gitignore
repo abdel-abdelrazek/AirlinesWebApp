@@ -129,3 +129,16 @@ target/classes/cs545/airline/service/FlightService.class
 target/classes/cs545/airline/service/AirportService.class
 src/main/webapp/index.xhtml
 src/main/java/resources/application.properties
+target/airlinesWebApp-0.0.1-SNAPSHOT/airline.xhtml
+target/airlinesWebApp-0.0.1-SNAPSHOT.war
+target/airlinesWebApp-0.0.1-SNAPSHOT/airlineList.xhtml
+target/airlinesWebApp-0.0.1-SNAPSHOT/resources/components/menuComponent.xhtml
+target/airlinesWebApp-0.0.1-SNAPSHOT/WEB-INF/faces-config.xml
+target/airlinesWebApp-0.0.1-SNAPSHOT/WEB-INF/classes/cs545/airline/bean/AirlineBean.class
+src/main/webapp/WEB-INF/faces-config.xml
+src/main/webapp/resources/components/menuComponent.xhtml
+target/airlinesWebApp-0.0.1-SNAPSHOT/WEB-INF/classes/cs545/airline/bean/ListFlightBean.class
+target/classes/cs545/airline/bean/ListFlightBean.class
+target/classes/cs545/airline/bean/AirlineBean.class
+target/maven-archiver/pom.properties
+target/classes/META-INF/persistence.xml

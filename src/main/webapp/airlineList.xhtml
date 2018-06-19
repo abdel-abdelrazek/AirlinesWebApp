@@ -5,55 +5,52 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:mum="http://xmlns.jcp.org/jsf/composite/components">
+	xmlns:waa="http://xmlns.jcp.org/jsf/composite/components">
 
 <h:head>
-	<title>List of Airlines</title>
-	<!-- Bootstrap core CSS -->
-	<h:outputStylesheet name="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+	<title>Airlines</title>
+
 </h:head>
 <h:body>
-	<mum:menu></mum:menu>
+	<waa:menuComponent></waa:menuComponent>
+
 	<div class="container">
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">List of Airlines</h3>
+				<h4 class="panel-title">Airline List</h4>
 			</div>
 			<div class="panel-body">
 				<h:form>
-
-					<h:dataTable value="#{airlineBeanManager.airlines}" var="airline"
-						styleClass="table table-hover airline-list"
+					<h:dataTable value="#{airlineBean.airlines}" var="airline"
+						styleClass="table  table-hover"
 						columnClasses="col-sm-10,col-sm-1,col-sm-1">
 						<h:column>
-							<f:facet name="header">Airline</f:facet>
+							<f:facet name="header">Name</f:facet>
 							<h:outputText value="#{airline.name}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Edit</f:facet>
 							<h:commandButton
-								action="#{airlineBeanManager.editAirline(airline.id)}"
+								action="#{airlineBean.edit(airline.id)}"
 								value="Edit" styleClass="btn btn-primary" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Delete</f:facet>
 							<h:commandButton
-								action="#{airlineBeanManager.deleteAirline(airline.id)}"
+								action="#{airlineBean.delete(airline.id)}"
 								value="Delete" styleClass="btn btn-danger" />
 						</h:column>
 					</h:dataTable>
 					<h:commandButton value="Add Airline"
-						action="#{airlineBeanManager.createForm()}" styleClass="btn btn-primary" />
+						action="#{airlineBean.callCreateForm()}" styleClass="btn btn-success" />
 				</h:form>
 			</div>
-
 		</div>
-
 	</div>
-	<!-- Bootstrap core JavaScript -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<h:outputScript name="bootstrap-3.3.7-dist/js/bootstrap.min.js" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></link>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
 </h:body>
 </html>

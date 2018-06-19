@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Named("airlineBeanManager")
+@Named("airlineBean")
 @SessionScoped
 public class AirlineBeanManager implements Serializable {
 
@@ -43,6 +43,7 @@ public class AirlineBeanManager implements Serializable {
 	}
 
 	public List<Airline> getAirlines() {
+		List<Airline> aaa= airlineService.findAll();
 		return airlineService.findAll();
 	}
 
@@ -63,8 +64,6 @@ public class AirlineBeanManager implements Serializable {
 			return "delete";
 		}
 		return "airlineList";
-		
-		
 	}
 	
 	public String createForm() {

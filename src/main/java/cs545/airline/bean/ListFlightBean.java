@@ -1,11 +1,11 @@
-package cs545.airline.beans;
+package cs545.airline.bean;
 
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -103,19 +103,19 @@ public class ListFlightBean implements Serializable {
 	}
 	
 	public void search() {
-		this.getAllFlights();
-		if (this.airlineId != -1) {
-			this.flights = flights.stream().filter(f -> f.getAirline().getId() == this.airlineId).collect(Collectors.toList());
-		}
-		if (this.destinationId != -1) {
-			this.flights = flights.stream().filter(f -> f.getDestination().getId() == this.destinationId).collect(Collectors.toList());
-		}
-		if (this.departureDate != null) {
-			this.flights = flights.stream().filter(f -> f.getDepartureDate().equals(df.format(this.departureDate))).collect(Collectors.toList());
-		}
-		if (this.departureTime != null) {
-			this.flights = flights.stream().filter(f -> f.getDepartureTime().equals(tf.format(this.departureTime))).collect(Collectors.toList());
-		}
+//		this.getAllFlights();
+//		if (this.airlineId != -1) {
+//			this.flights = flights.stream().filter(f -> f.getAirline().getId() == this.airlineId).collect(Collectors.toList());
+//		}
+//		if (this.destinationId != -1) {
+//			this.flights = flights.stream().filter(f -> f.getDestination().getId() == this.destinationId).collect(Collectors.toList());
+//		}
+//		if (this.departureDate != null) {
+//			this.flights = flights.stream().filter(f -> f.getDepartureDate().equals(df.format(this.departureDate))).collect(Collectors.toList());
+//		}
+//		if (this.departureTime != null) {
+//			this.flights = flights.stream().filter(f -> f.getDepartureTime().equals(tf.format(this.departureTime))).collect(Collectors.toList());
+//		}
 	}
 	
 	public void clear() {
