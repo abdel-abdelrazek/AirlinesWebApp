@@ -8,12 +8,12 @@
 </f:metadata>
 
 <h:head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <title>Flights App</title>
 
-    <h:outputStylesheet library="css" name="flightsTable.css"  />
+    <h:outputStylesheet library="css" name="flightsTable.css"/>
 
 </h:head>
 
@@ -29,7 +29,7 @@
 
         <div id="content">
 
-            <h:messages globalOnly="true" />
+            <h:messages globalOnly="true"/>
 
             <h:form>
 
@@ -48,38 +48,6 @@
 
                     <h:column>
                         <!-- the column header -->
-                        <f:facet name="header">Departure date</f:facet>
-
-                        <!--  the value for each row -->
-                        #{tempFlight.departureDate}
-                    </h:column>
-
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Departure time</f:facet>
-
-                        <!--  the value for each row -->
-                        #{tempFlight.departureTime}
-                    </h:column>
-
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Arrival date</f:facet>
-
-                        <!--  the value for each row -->
-                        #{tempFlight.arrivalDate}
-                    </h:column>
-
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Arrival time</f:facet>
-
-                        <!--  the value for each row -->
-                        #{tempFlight.arrivalTime}
-                    </h:column>
-
-                    <h:column>
-                        <!-- the column header -->
                         <f:facet name="header">Airline name</f:facet>
 
                         <!--  the value for each row -->
@@ -93,6 +61,13 @@
                         <!--  the value for each row -->
                         #{tempFlight.origin.name}
                     </h:column>
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Origin airport name</f:facet>
+
+                        <!--  the value for each row -->
+                        #{tempFlight.origin.airportcode}
+                    </h:column>
 
                     <h:column>
                         <!-- the column header -->
@@ -104,10 +79,26 @@
 
                     <h:column>
                         <!-- the column header -->
-                        <f:facet name="header">Airplane serial number</f:facet>
+                        <f:facet name="header">Destination airport name</f:facet>
 
                         <!--  the value for each row -->
-                        #{tempFlight.airplane.serialnr}
+                        #{tempFlight.destination.airportcode}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Airplane model</f:facet>
+
+                        <!--  the value for each row -->
+                        #{tempFlight.airplane.model}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Airplane Capacity</f:facet>
+
+                        <!--  the value for each row -->
+                        #{tempFlight.airplane.capacity}
                     </h:column>
 
                 </h:dataTable>
