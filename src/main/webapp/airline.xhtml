@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:waa="http://xmlns.jcp.org/jsf/composite/components">
+<h:head>
+    <title>Airline</title>
+</h:head>
+<h:body>
+    <waa:menuComponent></waa:menuComponent>
+
+
+
+    <div class="container">
+
+
+
+        <div class="">
+            <div class="">
+                <h3 class="">Airline Detail</h3>
+            </div>
+            <div class="">
+                <h:form>
+                    <div class="form-group row">
+                        <div class="col-sm-1">
+                            <h:outputLabel for="name" styleClass="col-form-label">Name:</h:outputLabel>
+                        </div>
+                        <div class="col-sm-4">
+                            <h:inputText id="name" value="#{airlineBean.name}"
+                                         required="true" styleClass="form-control"
+                                         requiredMessage="Airline Name is required." />
+                            <h:message for="name" errorClass="alert-danger"></h:message>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <h:commandButton value="Save"
+                                             action="#{airlineBean.create}"
+                                             styleClass="btn btn-primary" style="margin-right: 10px" />
+                            <h:commandButton action="airlineList" value="Cancel"
+                                             immediate="true" styleClass="btn btn-default" />
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></link>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</h:body>
+</html>
