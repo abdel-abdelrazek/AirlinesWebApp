@@ -4,36 +4,18 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee         http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
 	<navigation-rule>
-		<from-view-id>/airline.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>airlineList</from-outcome>
-			<to-view-id>/airlineList</to-view-id>
-		</navigation-case>
-
-		<navigation-case>
-			<from-outcome>airlineList</from-outcome>
-			<to-view-id>/airlineList.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
 		<from-view-id>/airlineList.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/airline</to-view-id>
+			<to-view-id>/airline.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>editForm</from-outcome>
-			<to-view-id>/airline</to-view-id>
-		</navigation-case>
-
-		<navigation-case>
-			<from-outcome>airlineList</from-outcome>
-			<to-view-id>/airlineList.xhtml</to-view-id>
+			<to-view-id>/airline.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>delete</from-outcome>
-			<to-view-id>/airlineList</to-view-id>
+			<to-view-id>/airlineList.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
