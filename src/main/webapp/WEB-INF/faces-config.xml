@@ -9,10 +9,7 @@
 			<from-outcome>airlineList</from-outcome>
 			<to-view-id>/airlineList</to-view-id>
 		</navigation-case>
-		<navigation-case>
-			<from-outcome>flightList</from-outcome>
-			<to-view-id>/flightList.xhtml</to-view-id>
-		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>airlineList</from-outcome>
 			<to-view-id>/airlineList.xhtml</to-view-id>
@@ -29,10 +26,7 @@
 			<from-outcome>editForm</from-outcome>
 			<to-view-id>/airline</to-view-id>
 		</navigation-case>
-		<navigation-case>
-			<from-outcome>flightList</from-outcome>
-			<to-view-id>/flightList.xhtml</to-view-id>
-		</navigation-case>
+
 		<navigation-case>
 			<from-outcome>airlineList</from-outcome>
 			<to-view-id>/airlineList.xhtml</to-view-id>
