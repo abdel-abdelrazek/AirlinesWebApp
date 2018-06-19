@@ -1,6 +1,8 @@
 package edu.mum.cs545.controller;
 
 import cs545.airline.model.Airline;
+import cs545.airline.model.Airplane;
+import cs545.airline.model.Airport;
 import cs545.airline.model.Flight;
 import cs545.airline.service.AirlineService;
 import cs545.airline.service.FlightService;
@@ -26,6 +28,7 @@ public class FlightController {
     @Inject
     private AirlineService airlineService;
 
+
     private Logger logger = Logger.getLogger(getClass().getName());
 
     public FlightController() throws Exception {
@@ -37,6 +40,44 @@ public class FlightController {
     }
 
     public void loadFlights() {
+
+
+//      List<  Airline> airline=   airlineService.findAll();
+//        for (Integer x=0;x< airline.size();x++) {
+//            airlineService.delete(airline.get(x));
+//        }
+
+
+// Airline airline = new Airline();
+//
+//        airline.setId(552325);
+//        airline.setName("A32merican Ai2rlineee");
+//
+//        Flight flight = new Flight();
+//        flight.setFlightnr("312223");
+//        flight.setId(525253);
+//        flight.setDepartureDate("Tuesday, June 30, 2009");
+//        flight.setDepartureTime("7:03:47 AM PDT");
+//        flight.setArrivalTime("7:03:47 AM PDT");
+//        flight.setArrivalDate("Tuesday, June 30, 2009");
+//        Airport airport = new Airport();
+//        airport.setId(5522453);
+//        airport.setName("Chi232cag2ode");
+//        airport.setAirportcode("O3R22Dde");
+//        Airport airport2 = new Airport();
+//        airport2.setId(525235);
+//        airport2.setName("Ci232da2rdee");
+//        airport2.setAirportcode("C3I2D2de");
+//        flight.setDestination(airport);
+//        flight.setOrigin(airport);
+//        airline.addFlight(flight);
+//        Airplane airplane =new Airplane();
+//        airplane.setModel("X2F3");
+//        airplane.setCapacity(10);
+//        airplane.setId(12213);
+//        flight.setAirplane(airplane);
+//        airlineService.create(airline);
+
 
         logger.info("Loading flights");
 
