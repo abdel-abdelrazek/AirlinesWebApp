@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:mum="http://xmlns.jcp.org/jsf/composite/components">
+
+<h:head>
+	<title>List of Airlines</title>
+	<!-- Bootstrap core CSS -->
+	<h:outputStylesheet name="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+</h:head>
+<h:body>
+	<mum:menu></mum:menu>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">List of Airlines</h3>
+			</div>
+			<div class="panel-body">
+				<h:form>
+
+					<h:dataTable value="#{airlineBeanManager.airlines}" var="airline"
+						styleClass="table table-hover airline-list"
+						columnClasses="col-sm-10,col-sm-1,col-sm-1">
+						<h:column>
+							<f:facet name="header">Airline</f:facet>
+							<h:outputText value="#{airline.name}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Edit</f:facet>
+							<h:commandButton
+								action="#{airlineBeanManager.editAirline(airline.id)}"
+								value="Edit" styleClass="btn btn-primary" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Delete</f:facet>
+							<h:commandButton
+								action="#{airlineBeanManager.deleteAirline(airline.id)}"
+								value="Delete" styleClass="btn btn-danger" />
+						</h:column>
+					</h:dataTable>
+					<h:commandButton value="Add Airline"
+						action="#{airlineBeanManager.createForm()}" styleClass="btn btn-primary" />
+				</h:form>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- Bootstrap core JavaScript -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<h:outputScript name="bootstrap-3.3.7-dist/js/bootstrap.min.js" />
+</h:body>
+</html>
