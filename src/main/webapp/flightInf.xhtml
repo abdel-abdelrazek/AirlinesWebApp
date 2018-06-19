@@ -3,50 +3,120 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+<f:metadata>
+    <f:event type="preRenderView" listener="#{FlightController.loadFlights()}"/>
+</f:metadata>
+
 <h:head>
-    <title>Flights Information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Flights App</title>
 
     <h:outputStylesheet library="css" name="flightsTable.css"  />
+
 </h:head>
 
 <h:body>
-    <h3>Flights information</h3>
 
-    <hr/>
+    <div id="wrapper">
+        <div id="header">
+            <h2>Flights</h2>
+        </div>
+    </div>
 
-    <br/>
+    <div id="container">
 
-    <h:dataTable value="#{FlightDataUtil.flights}" var="tempFlight"
-                 styleClass="demo-table"
-                 headerClass="demo-table-header"
-                 rowClasses="demo-table-odd-row,demo-table-even-row"
-    >
+        <div id="content">
 
-        <h:column>
-            <!-- the column header -->
-            <f:facet name="header">Flight Number</f:facet>
+            <h:messages globalOnly="true" />
 
-            <!--  the value for each row -->
-            #{tempFlight.flightnr}
-        </h:column>
+            <h:form>
 
-        <h:column>
-            <!-- the column header -->
-            <f:facet name="header">Flight</f:facet>
+                <h:dataTable value="#{FlightController.flights}" var="tempStudent"
+                             styleClass="demo-table"
+                             headerClass="demo-table-header"
+                             rowClasses="demo-table-odd-row,demo-table-even-row">
 
-            <!--  the value for each row -->
-            #{tempFlight.flightnr}
-        </h:column>
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Flight Number</f:facet>
 
-        <h:column>
-            <!-- the column header -->
-            <f:facet name="header">Flight </f:facet>
+                        <!--  the value for each row -->
+                        #{FlightController.flightnr}
+                    </h:column>
 
-            <!--  the value for each row -->
-            #{tempFlight.flightnr}
-        </h:column>
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Departure date</f:facet>
 
-    </h:dataTable>
+                        <!--  the value for each row -->
+                        #{FlightController.departureDate}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Departure time</f:facet>
+
+                        <!--  the value for each row -->
+                        #{FlightController.departureTime}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Arrival date</f:facet>
+
+                        <!--  the value for each row -->
+                        #{FlightController.arrivalDate}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Arrival time</f:facet>
+
+                        <!--  the value for each row -->
+                        #{FlightController.arrivalTime}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Airline name</f:facet>
+
+                        <!--  the value for each row -->
+                        #{FlightController.airline.name}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Origin airport name</f:facet>
+
+                        <!--  the value for each row -->
+                        #{FlightController.origin.name}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Destination airport name</f:facet>
+
+                        <!--  the value for each row -->
+                        #{FlightController.destination.name}
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Airplane serial number</f:facet>
+
+                        <!--  the value for each row -->
+                        #{FlightController.airplane.serialnr}
+                    </h:column>
+
+                </h:dataTable>
+
+            </h:form>
+
+        </div>
+
+    </div>
 
 </h:body>
 </html>
