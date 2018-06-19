@@ -11,31 +11,39 @@
 <h:body>
     <waa:menuComponent></waa:menuComponent>
 
+
+
     <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Airline detail</h3>
+
+
+
+        <div class="">
+            <div class="">
+                <h3 class="">Airline Detail</h3>
             </div>
-            <div class="panel-body">
+            <div class="">
                 <h:form>
-                    <div class="form-group">
-                        <h:outputLabel for="name">Name:</h:outputLabel>
-                        <h:inputText id="name" value="#{airlineBean.name}"
-                                     required="true" styleClass="form-control"
-                                     requiredMessage="Airline Name is required." />
-                        <h:message for="name" errorClass="alert-danger"></h:message>
+                    <div class="form-group row">
+                        <div class="col-sm-1">
+                            <h:outputLabel for="name" styleClass="col-form-label">Name:</h:outputLabel>
+                        </div>
+                        <div class="col-sm-4">
+                            <h:inputText id="name" value="#{airlineBean.name}"
+                                         required="true" styleClass="form-control"
+                                         requiredMessage="Airline Name is required." />
+                            <h:message for="name" errorClass="alert-danger"></h:message>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <h:commandButton value="Save"
-                                         action="#{airlineBean.create}"
-                                         styleClass="btn btn-primary" />
-                        <h:commandButton action="airlineList" value="Cancel"
-                                         immediate="true" styleClass="btn btn-default" />
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <h:commandButton value="Save"
+                                             action="#{airlineBean.create}"
+                                             styleClass="btn btn-primary" style="margin-right: 10px" />
+                            <h:commandButton action="airlineList" value="Cancel"
+                                             immediate="true" styleClass="btn btn-default" />
+                        </div>
                     </div>
-
                 </h:form>
-
-
             </div>
         </div>
     </div>
