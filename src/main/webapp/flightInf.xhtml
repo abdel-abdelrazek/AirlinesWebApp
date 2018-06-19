@@ -33,7 +33,7 @@
 
             <h:form>
 
-                <h:dataTable value="#{FlightController.flights}" var="tempStudent"
+                <h:dataTable value="#{FlightController.flights}" var="tempFlight"
                              styleClass="demo-table"
                              headerClass="demo-table-header"
                              rowClasses="demo-table-odd-row,demo-table-even-row">
@@ -43,7 +43,7 @@
                         <f:facet name="header">Flight Number</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.flightnr}
+                        #{tempFlight.flightnr}
                     </h:column>
 
                     <h:column>
@@ -51,7 +51,7 @@
                         <f:facet name="header">Departure date</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.departureDate}
+                        #{tempFlight.departureDate}
                     </h:column>
 
                     <h:column>
@@ -59,7 +59,7 @@
                         <f:facet name="header">Departure time</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.departureTime}
+                        #{tempFlight.departureTime}
                     </h:column>
 
                     <h:column>
@@ -67,7 +67,7 @@
                         <f:facet name="header">Arrival date</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.arrivalDate}
+                        #{tempFlight.arrivalDate}
                     </h:column>
 
                     <h:column>
@@ -75,7 +75,7 @@
                         <f:facet name="header">Arrival time</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.arrivalTime}
+                        #{tempFlight.arrivalTime}
                     </h:column>
 
                     <h:column>
@@ -83,7 +83,7 @@
                         <f:facet name="header">Airline name</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.airline.name}
+                        #{tempFlight.airline.name}
                     </h:column>
 
                     <h:column>
@@ -91,7 +91,7 @@
                         <f:facet name="header">Origin airport name</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.origin.name}
+                        #{tempFlight.origin.name}
                     </h:column>
 
                     <h:column>
@@ -99,7 +99,7 @@
                         <f:facet name="header">Destination airport name</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.destination.name}
+                        #{tempFlight.destination.name}
                     </h:column>
 
                     <h:column>
@@ -107,7 +107,7 @@
                         <f:facet name="header">Airplane serial number</f:facet>
 
                         <!--  the value for each row -->
-                        #{FlightController.airplane.serialnr}
+                        #{tempFlight.airplane.serialnr}
                     </h:column>
 
                 </h:dataTable>

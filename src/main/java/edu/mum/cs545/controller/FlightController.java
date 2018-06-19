@@ -1,6 +1,8 @@
 package edu.mum.cs545.controller;
 
+import cs545.airline.model.Airline;
 import cs545.airline.model.Flight;
+import cs545.airline.service.AirlineService;
 import cs545.airline.service.FlightService;
 
 import java.util.ArrayList;
@@ -14,13 +16,15 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-@ManagedBean
+@ManagedBean(name = "FlightController")
 @SessionScoped
 public class FlightController {
 
     private List<Flight> flights;
     @Inject
     private FlightService flightService;
+    @Inject
+    private AirlineService airlineService;
 
     private Logger logger = Logger.getLogger(getClass().getName());
 
@@ -28,7 +32,7 @@ public class FlightController {
         flights = new ArrayList<>();
     }
 
-    public List<Flight> getStudents() {
+    public List<Flight> getFlights() {
         return flights;
     }
 
