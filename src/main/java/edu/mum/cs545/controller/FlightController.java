@@ -8,6 +8,7 @@ import cs545.airline.service.AirlineService;
 import cs545.airline.service.FlightService;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,8 @@ public class FlightController {
     private FlightService flightService;
     @Inject
     private AirlineService airlineService;
+    private String airline;
+    private List<Airline> airlines;
 
 
     private Logger logger = Logger.getLogger(getClass().getName());
@@ -39,45 +42,18 @@ public class FlightController {
         return flights;
     }
 
+    public List<Airline> getAirlines() {
+        return airlines;
+    }
+
+    public String getAirline() {
+        return airline;
+    }
+
     public void loadFlights() {
 
 
-//      List<  Airline> airline=   airlineService.findAll();
-//        for (Integer x=0;x< airline.size();x++) {
-//            airlineService.delete(airline.get(x));
-//        }
-
-
-// Airline airline = new Airline();
-//
-//        airline.setId(552325);
-//        airline.setName("A32merican Ai2rlineee");
-//
-//        Flight flight = new Flight();
-//        flight.setFlightnr("312223");
-//        flight.setId(525253);
-//        flight.setDepartureDate("Tuesday, June 30, 2009");
-//        flight.setDepartureTime("7:03:47 AM PDT");
-//        flight.setArrivalTime("7:03:47 AM PDT");
-//        flight.setArrivalDate("Tuesday, June 30, 2009");
-//        Airport airport = new Airport();
-//        airport.setId(5522453);
-//        airport.setName("Chi232cag2ode");
-//        airport.setAirportcode("O3R22Dde");
-//        Airport airport2 = new Airport();
-//        airport2.setId(525235);
-//        airport2.setName("Ci232da2rdee");
-//        airport2.setAirportcode("C3I2D2de");
-//        flight.setDestination(airport);
-//        flight.setOrigin(airport);
-//        airline.addFlight(flight);
-//        Airplane airplane =new Airplane();
-//        airplane.setModel("X2F3");
-//        airplane.setCapacity(10);
-//        airplane.setId(12213);
-//        flight.setAirplane(airplane);
-//        airlineService.create(airline);
-
+        airlines = airlineService.findAll();
 
         logger.info("Loading flights");
 

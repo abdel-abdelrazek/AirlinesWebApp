@@ -31,77 +31,110 @@
 
             <h:messages globalOnly="true"/>
 
+            <h:dataTable value="#{FlightController.flights}" var="tempFlight"
+                         styleClass="demo-table"
+                         headerClass="demo-table-header"
+                         rowClasses="demo-table-odd-row,demo-table-even-row">
+
+                <h:column>
+                    <!-- the column header -->
+                    <f:facet name="header">Flight Number</f:facet>
+
+                    <!--  the value for each row -->
+                    #{tempFlight.flightnr}
+                </h:column>
+
+                <h:column>
+                    <!-- the column header -->
+                    <f:facet name="header">Airline name</f:facet>
+
+                    <!--  the value for each row -->
+                    #{tempFlight.airline.name}
+                </h:column>
+
+                <h:column>
+                    <!-- the column header -->
+                    <f:facet name="header">Origin airport name</f:facet>
+
+                    <!--  the value for each row -->
+                    #{tempFlight.origin.name}
+                </h:column>
+                <h:column>
+                    <!-- the column header -->
+                    <f:facet name="header">Origin airport name</f:facet>
+
+                    <!--  the value for each row -->
+                    #{tempFlight.origin.airportcode}
+                </h:column>
+
+                <h:column>
+                    <!-- the column header -->
+                    <f:facet name="header">Destination airport name</f:facet>
+
+                    <!--  the value for each row -->
+                    #{tempFlight.destination.name}
+                </h:column>
+
+                <h:column>
+                    <!-- the column header -->
+                    <f:facet name="header">Destination airport name</f:facet>
+
+                    <!--  the value for each row -->
+                    #{tempFlight.destination.airportcode}
+                </h:column>
+
+                <h:column>
+                    <!-- the column header -->
+                    <f:facet name="header">Airplane model</f:facet>
+
+                    <!--  the value for each row -->
+                    #{tempFlight.airplane.model}
+                </h:column>
+
+                <h:column>
+                    <!-- the column header -->
+                    <f:facet name="header">Airplane Capacity</f:facet>
+
+                    <!--  the value for each row -->
+                    #{tempFlight.airplane.capacity}
+                </h:column>
+
+            </h:dataTable>
+
             <h:form>
 
-                <h:dataTable value="#{FlightController.flights}" var="tempFlight"
-                             styleClass="demo-table"
-                             headerClass="demo-table-header"
-                             rowClasses="demo-table-odd-row,demo-table-even-row">
+                First name: <h:inputText value="#{backingBean.someDate}">
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+            </h:inputText>
 
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Flight Number</f:facet>
+                <br/><br/>
 
-                        <!--  the value for each row -->
-                        #{tempFlight.flightnr}
-                    </h:column>
+                Last name: <h:inputText value="#{backingBean.someDate}">
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+            </h:inputText>
 
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Airline name</f:facet>
+                <br/><br/>
 
-                        <!--  the value for each row -->
-                        #{tempFlight.airline.name}
-                    </h:column>
+                Airline:
+                <h:selectOneMenu value="#{FlightController.airline}">
+                    <f:selectItems value="#{FlightController.airlines}" var="airline"  itemValue="#{airline.id}" itemLabel="#{airline.name}" />
+                </h:selectOneMenu>
 
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Origin airport name</f:facet>
+                <br/>
+                Departure:
+                <h:selectOneMenu value="#{studentTwo.country}">
+                    <f:selectItems value="#{studentTwo.countryOptions}"/>
+                </h:selectOneMenu>
 
-                        <!--  the value for each row -->
-                        #{tempFlight.origin.name}
-                    </h:column>
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Origin airport name</f:facet>
+                <br/>
+                Destination:
+                <h:selectOneMenu value="#{studentTwo.country}">
+                    <f:selectItems value="#{studentTwo.countryOptions}"/>
+                </h:selectOneMenu>
 
-                        <!--  the value for each row -->
-                        #{tempFlight.origin.airportcode}
-                    </h:column>
+                <br/>
 
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Destination airport name</f:facet>
-
-                        <!--  the value for each row -->
-                        #{tempFlight.destination.name}
-                    </h:column>
-
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Destination airport name</f:facet>
-
-                        <!--  the value for each row -->
-                        #{tempFlight.destination.airportcode}
-                    </h:column>
-
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Airplane model</f:facet>
-
-                        <!--  the value for each row -->
-                        #{tempFlight.airplane.model}
-                    </h:column>
-
-                    <h:column>
-                        <!-- the column header -->
-                        <f:facet name="header">Airplane Capacity</f:facet>
-
-                        <!--  the value for each row -->
-                        #{tempFlight.airplane.capacity}
-                    </h:column>
-
-                </h:dataTable>
+                <h:commandButton value="Submit" action="student_two_response"/>
 
             </h:form>
 
