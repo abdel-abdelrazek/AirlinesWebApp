@@ -37,27 +37,47 @@
                 <div class="form-group">
                     <h:outputLabel value="Departure Date:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
-                        <h:inputText value="#{FlightCreateController.departureDate}" styleClass="form-control datepicker"/>
+                        <h:inputText value="#{FlightCreateController.departureDate}"
+                                     styleClass="form-control datepicker"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <h:outputLabel value="Arrival Date:" styleClass="control-label col-sm-2"/>
+                    <h:outputLabel value="Departure Time:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
-                        <h:inputText value="#{FlightCreateController.arrivalDate}" styleClass="form-control datepicker"/>
+                        <h:inputText value="#{FlightCreateController.departureTime}"
+                                     styleClass="form-control datepicker"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel value="Departure Date:" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:inputText value="#{FlightCreateController.departureDate}"
+                                     styleClass="form-control datepicker"/>
                     </div>
                 </div>
 
-                <!-- Last name: <h:inputText value="#{backingBean.someDate}">
-                 <f:convertDateTime pattern="yyyy-MM-dd"/>
-             </h:inputText>
+                <div class="form-group">
+                    <h:outputLabel value="Arrival Time:" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:inputText value="#{FlightCreateController.arrivalTime}"
+                                     styleClass="form-control datepicker"/>
+                    </div>
+                </div>
 
-                 <br/><br/>
-            -->
+                <div class="form-group">
+                    <h:outputLabel value="Flight Number:" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:inputText value="#{FlightCreateController.flightNum}"
+                                     styleClass="form-control"/>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <h:outputLabel value="Airline:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
-                        <h:selectOneMenu styleClass="form-control  selectpicker" value="#{FlightCreateController.airline}">
+                        <h:selectOneMenu styleClass="form-control  selectpicker"
+                                         value="#{FlightCreateController.airline}">
                             <f:selectItems value="#{FlightCreateController.airlines}" var="airline"
                                            itemValue="#{airline.name}"
                                            itemLabel="#{airline.name}"/>
@@ -68,7 +88,8 @@
                 <div class="form-group">
                     <h:outputLabel value="Origin:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
-                        <h:selectOneMenu styleClass="form-control  selectpicker" value="#{FlightCreateController.origin}">
+                        <h:selectOneMenu styleClass="form-control  selectpicker"
+                                         value="#{FlightCreateController.origin}">
                             <f:selectItems value="#{FlightCreateController.origins}"/>
                         </h:selectOneMenu>
                     </div>

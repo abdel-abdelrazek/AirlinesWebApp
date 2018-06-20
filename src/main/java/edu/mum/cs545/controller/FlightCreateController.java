@@ -1,8 +1,11 @@
 package edu.mum.cs545.controller;
 
 import cs545.airline.model.Airline;
+import cs545.airline.model.Airplane;
+import cs545.airline.model.Airport;
 import cs545.airline.model.Flight;
 import cs545.airline.service.AirlineService;
+import cs545.airline.service.AirportService;
 import cs545.airline.service.FlightService;
 
 import javax.faces.application.FacesMessage;
@@ -24,15 +27,21 @@ public class FlightCreateController {
     private FlightService flightService;
     @Inject
     private AirlineService airlineService;
-    private String airline;
+    @Inject
+    private AirportService airportService;
+
+    private String originCode;
     private List<Airline> airlines;
     private List<String> destinations;
     private List<String> origins;
-    private String destination;
+    private String destinationCode;
     private String originAirport;
     private String arrivalDate;
     private String departureDate;
     private boolean doFilter;
+    private String flightNum;
+    private String arrivalTime;
+    private String departureTime;
 
     private Logger logger = Logger.getLogger(getClass().getName());
 
@@ -40,12 +49,15 @@ public class FlightCreateController {
         flights = new ArrayList<>();
         destinations = new ArrayList<>();
         origins = new ArrayList<>();
-        originAirport = "";
-        destination = "";
-        airline = "";
+        originCode = "";
+        destinationCode = "";
+        originCode = "";
         departureDate = "21 June, 2018";
         arrivalDate = "21 June, 2018";
         doFilter = false;
+        flightNum = "";
+        arrivalTime = "";
+        departureTime = "";
     }
 
     public List<Flight> getFlights() {
@@ -64,8 +76,20 @@ public class FlightCreateController {
         return origins;
     }
 
+    public String getArrivalTime() {
+        return arrivalTime;
+    }
+
     public String getOrigin() {
         return originAirport;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public String getFlightNum() {
+        return flightNum;
     }
 
     public String getArrivalDate() {
@@ -89,11 +113,11 @@ public class FlightCreateController {
     }
 
     public String getDestination() {
-        return destination;
+        return destinationCode;
     }
 
     public void setDestination(String destination) {
-        this.destination = destination;
+        this.destinationCode = destination;
     }
 
     public List<Airline> getAirlines() {
@@ -101,11 +125,11 @@ public class FlightCreateController {
     }
 
     public String getAirline() {
-        return airline;
+        return originCode;
     }
 
     public void setAirline(String airline) {
-        this.airline = airline;
+        this.originCode = airline;
     }
 
     public void doFilter() {
@@ -121,6 +145,28 @@ public class FlightCreateController {
     public void doCreate() {
         try {
 
+            Flight flight = new Flight();
+            
+            flight.setFlightnr(flightNum);
+            //flight.setId(5215253);
+            flight.setDepartureDate(departureDate);
+            flight.setDepartureTime(departureTime);
+            flight.setArrivalTime(arrivalTime);
+            flight.setArrivalDate(departureDate);
+            Airport airport = new Airport();
+            Airport origin = airportService.findByCode(destinationCode);
+            Airport destination = airportService.findByCode(originCode);
+            flight.setDestination(origin);
+            flight.setOrigin(destination);
+//            //airline.addFlight(flight);
+//
+//
+//            Airplane airplane=airp
+//            Airplane airplane = new Airplane();
+//            airplane.setModel("X2F13");
+//            airplane.setCapacity(10);
+//            airplane.setId(122113);
+//            flight.setAirplane(airplane);
 
         } catch (
                 Exception exc)
@@ -135,7 +181,7 @@ public class FlightCreateController {
 
     }
 
-        public void loadData() {
+    public void loadData() {
 
         airlines = airlineService.findAll();
 
