@@ -22,7 +22,7 @@
     <waa:menuComponent></waa:menuComponent>
     <div id="wrapper">
         <div id="header">
-            <h2>Flights</h2>
+            <h2>add Flight</h2>
         </div>
     </div>
 
@@ -90,9 +90,7 @@
                     <div class="col-sm-3">
                         <h:selectOneMenu styleClass="form-control  selectpicker"
                                          value="#{FlightCreateController.airplaneSrNum}">
-                            <f:selectItems value="#{FlightCreateController.airplanes}" var="airline"
-                                           itemValue="#{airline.serialnr}"
-                                           itemLabel="#{airline.serialnr}"/>
+                            <f:selectItems value="#{FlightCreateController.airplanes}"/>
                         </h:selectOneMenu>
                     </div>
                 </div>
@@ -101,7 +99,7 @@
                     <h:outputLabel value="Origin:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
                         <h:selectOneMenu styleClass="form-control  selectpicker"
-                                         value="#{FlightCreateController.origin}">
+                                         value="#{FlightCreateController.originCode}">
                             <f:selectItems value="#{FlightCreateController.origins}"/>
                         </h:selectOneMenu>
                     </div>
@@ -119,7 +117,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <h:commandButton value="Filter" update="@form" styleClass="btn btn-info"
+                        <h:commandButton value="Add" update="@form" styleClass="btn btn-info"
                                          action="#{FlightCreateController.doCreate()}"/>
 
                     </div>

@@ -39,7 +39,6 @@ public class FlightCreateController {
     private List<String> destinations;
     private List<String> origins;
     private String destinationCode;
-    private String originAirport;
     private String arrivalDate;
     private String departureDate;
     private boolean doFilter;
@@ -55,9 +54,10 @@ public class FlightCreateController {
         flights = new ArrayList<>();
         destinations = new ArrayList<>();
         origins = new ArrayList<>();
+        airplanes = new ArrayList<>();
+
         originCode = "";
         destinationCode = "";
-        originCode = "";
         departureDate = "21 June, 2018";
         arrivalDate = "21 June, 2018";
         doFilter = false;
@@ -65,6 +65,7 @@ public class FlightCreateController {
         arrivalTime = "7:03:47 AM";
         departureTime = "7:03:47 AM";
         airplaneSrNum = "";
+        airlineName = "";
     }
 
     public List<Flight> getFlights() {
@@ -75,6 +76,10 @@ public class FlightCreateController {
         this.flights = flights;
     }
 
+    public List<String> getAirplanes() {
+        return airplanes;
+    }
+
     public List<String> getDestinations() {
         return destinations;
     }
@@ -83,44 +88,69 @@ public class FlightCreateController {
         return origins;
     }
 
+    public void setOrigins(List<String> origins) {
+        this.origins = origins;
+    }
+
+    public List<Airline> getAirlines() {
+        return airlines;
+    }
+
     public String getArrivalTime() {
         return arrivalTime;
     }
+
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
 
     public String getAirplaneSrNum() {
         return airplaneSrNum;
     }
 
-    public String getOrigin() {
-        return originAirport;
+    public void setAirplaneSrNum(String airplaneSrNum) {
+        this.airplaneSrNum = airplaneSrNum;
+    }
+
+    public String getAirlineName() {
+        return airlineName;
+    }
+
+    public void setAirlineName(String airlineName) {
+        this.airlineName = airlineName;
     }
 
     public String getDepartureTime() {
         return departureTime;
     }
 
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
+
     public String getFlightNum() {
         return flightNum;
+    }
+
+    public void setFlightNum(String flightNum) {
+        this.flightNum = flightNum;
     }
 
     public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public String getDepartureDate() {
-        return departureDate;
-    }
-
     public void setArrivalDate(String arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
-    public void setDepartureDate(String departureDate) {
-        this.departureDate = departureDate;
+    public String getDepartureDate() {
+        return departureDate;
     }
 
-    public void setOrigin(String origin) {
-        this.originAirport = origin;
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
     }
 
     public String getDestination() {
@@ -131,27 +161,14 @@ public class FlightCreateController {
         this.destinationCode = destination;
     }
 
-    public List<Airline> getAirlines() {
-        return airlines;
-    }
-
-    public String getAirline() {
+    public String getOriginCode() {
         return originCode;
     }
 
-    public void setAirline(String airline) {
-        this.originCode = airline;
+    public void setOriginCode(String originCode) {
+        this.originCode = originCode;
     }
 
-    public void doFilter() {
-
-        doFilter = true;
-    }
-
-    public void showAll() {
-
-        doFilter = false;
-    }
 
     public void doCreate() {
         try {
@@ -164,7 +181,6 @@ public class FlightCreateController {
             flight.setDepartureTime(departureTime);
             flight.setArrivalTime(arrivalTime);
             flight.setArrivalDate(departureDate);
-            Airport airport = new Airport();
             Airport origin = airportService.findByCode(destinationCode);
             Airport destination = airportService.findByCode(originCode);
             flight.setDestination(origin);
@@ -173,8 +189,11 @@ public class FlightCreateController {
             Airline airline = airlineService.findByName(airlineName);
             flight.setAirline(airline);
 
-            Airplane airplane = airplaneService.findBySrlnr(airplaneSrNum);
-            flight.setAirplane(airplane);
+//          Airplane airplane = airplaneService.findBySrlnr(airplaneSrNum);
+//          flight.setAirplane(airplane);
+
+            List<Airplane> airplane = airplaneService.findByModel(airplaneSrNum);
+            flight.setAirplane(airplane.get(0));
 
             flightService.create(flight);
 
@@ -205,14 +224,19 @@ public class FlightCreateController {
             flights = flightService.findAll();
 
             for (Flight tmpFlight : flights) {
-                if (!destinations.contains(tmpFlight.getDestination().getName())) {
+                if (!destinations.contains(tmpFlight.getDestination().getAirportcode())) {
 
-                    destinations.add(tmpFlight.getDestination().getName());
+                    destinations.add(tmpFlight.getDestination().getAirportcode());
                 }
 
-                if (!origins.contains(tmpFlight.getOrigin().getName())) {
+                if (!origins.contains(tmpFlight.getOrigin().getAirportcode())) {
 
-                    origins.add(tmpFlight.getOrigin().getName());
+                    origins.add(tmpFlight.getOrigin().getAirportcode());
+                }
+
+                if (!airplanes.contains(tmpFlight.getAirplane().getModel())) {
+
+                    airplanes.add(tmpFlight.getAirplane().getModel());
                 }
 
             }
