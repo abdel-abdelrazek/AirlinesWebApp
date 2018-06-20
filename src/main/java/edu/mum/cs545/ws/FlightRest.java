@@ -47,16 +47,26 @@ public class FlightRest {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void create(Flight flight) {
+	public String create(Flight flight) {
+		try{
 			flightService.create(flight);
+			return  myPapper.writeValueAsString("Created Successfully");
+		} catch (JsonProcessingException e){
+			return  e.getMessage();
+		}
 	}
 
 	@Path("delete")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void delete(Flight flight) {
-		flightService.delete(flight);
+	public String delete(Flight flight) {
+		try{
+			flightService.delete(flight);
+			return  myPapper.writeValueAsString("Deleted Successfully");
+		} catch (JsonProcessingException e){
+			return  e.getMessage();
+		}
 	}
 
 	@Path("findAll")
