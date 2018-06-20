@@ -5,6 +5,7 @@ import cs545.airline.model.Airplane;
 import cs545.airline.model.Airport;
 import cs545.airline.model.Flight;
 import cs545.airline.service.AirlineService;
+import cs545.airline.service.AirplaneService;
 import cs545.airline.service.AirportService;
 import cs545.airline.service.FlightService;
 
@@ -29,8 +30,11 @@ public class FlightCreateController {
     private AirlineService airlineService;
     @Inject
     private AirportService airportService;
+    @Inject
+    private AirplaneService airplaneService;
 
     private String originCode;
+    private List<String> airplanes;
     private List<Airline> airlines;
     private List<String> destinations;
     private List<String> origins;
@@ -43,6 +47,7 @@ public class FlightCreateController {
     private String arrivalTime;
     private String departureTime;
     private String airlineName;
+    private String airplaneSrNum;
 
     private Logger logger = Logger.getLogger(getClass().getName());
 
@@ -59,6 +64,7 @@ public class FlightCreateController {
         flightNum = "";
         arrivalTime = "7:03:47 AM";
         departureTime = "7:03:47 AM";
+        airplaneSrNum = "";
     }
 
     public List<Flight> getFlights() {
@@ -79,6 +85,10 @@ public class FlightCreateController {
 
     public String getArrivalTime() {
         return arrivalTime;
+    }
+
+    public String getAirplaneSrNum() {
+        return airplaneSrNum;
     }
 
     public String getOrigin() {
@@ -163,7 +173,8 @@ public class FlightCreateController {
             Airline airline = airlineService.findByName(airlineName);
             flight.setAirline(airline);
 
-            flight.setAirplane(null);
+            Airplane airplane = airplaneService.findBySrlnr(airplaneSrNum);
+            flight.setAirplane(airplane);
 
             flightService.create(flight);
 
