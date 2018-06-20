@@ -144,56 +144,61 @@
 
                 </h:dataTable>
 
-                <div class="form-group">
-                    <h:outputLabel value="Departure Date:" styleClass="control-label col-sm-2"/>
-                    <div class="col-sm-3">
-                        <h:inputText value="#{FlightController.departureDate}" styleClass="form-control datepicker"/>
+                <div class="row">
+                    <div class="form-group">
+                        <h:outputLabel value="Departure Date:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:inputText value="#{FlightController.departureDate}"
+                                         styleClass="form-control datepicker"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Arrival Date:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:inputText value="#{FlightController.arrivalDate}" styleClass="form-control datepicker"/>
+                        </div>
+                    </div>
+
+                    <!-- Last name: <h:inputText value="#{backingBean.someDate}">
+                     <f:convertDateTime pattern="yyyy-MM-dd"/>
+                 </h:inputText>
+
+                     <br/><br/>
+                -->
+
+                    <div class="form-group">
+                        <h:outputLabel value="Airline Company:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:selectOneMenu styleClass="form-control  selectpicker"
+                                             value="#{FlightController.airline}">
+                                <f:selectItems value="#{FlightController.airlines}" var="airline"
+                                               itemValue="#{airline.name}"
+                                               itemLabel="#{airline.name}"/>
+                            </h:selectOneMenu>
+                        </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="form-group">
+                        <h:outputLabel value="Origin:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:selectOneMenu styleClass="form-control  selectpicker" value="#{FlightController.origin}">
+                                <f:selectItems value="#{FlightController.origins}"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <h:outputLabel value="Arrival Date:" styleClass="control-label col-sm-2"/>
-                    <div class="col-sm-3">
-                        <h:inputText value="#{FlightController.arrivalDate}" styleClass="form-control datepicker"/>
+                    <div class="form-group">
+                        <h:outputLabel value="Destination:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:selectOneMenu styleClass="form-control  selectpicker"
+                                             value="#{FlightController.destination}">
+                                <f:selectItems value="#{FlightController.destinations}"/>
+                            </h:selectOneMenu>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Last name: <h:inputText value="#{backingBean.someDate}">
-                 <f:convertDateTime pattern="yyyy-MM-dd"/>
-             </h:inputText>
-
-                 <br/><br/>
-            -->
-                <div class="form-group">
-                    <h:outputLabel value="Airline:" styleClass="control-label col-sm-2"/>
-                    <div class="col-sm-3">
-                        <h:selectOneMenu styleClass="form-control  selectpicker" value="#{FlightController.airline}">
-                            <f:selectItems value="#{FlightController.airlines}" var="airline"
-                                           itemValue="#{airline.name}"
-                                           itemLabel="#{airline.name}"/>
-                        </h:selectOneMenu>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <h:outputLabel value="Origin:" styleClass="control-label col-sm-2"/>
-                    <div class="col-sm-3">
-                        <h:selectOneMenu styleClass="form-control  selectpicker" value="#{FlightController.origin}">
-                            <f:selectItems value="#{FlightController.origins}"/>
-                        </h:selectOneMenu>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <h:outputLabel value="Destination:" styleClass="control-label col-sm-2"/>
-                    <div class="col-sm-3">
-                        <h:selectOneMenu styleClass="form-control  selectpicker"
-                                         value="#{FlightController.destination}">
-                            <f:selectItems value="#{FlightController.destinations}"/>
-                        </h:selectOneMenu>
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="col">
                         <h:commandButton value="Filter" update="@form" styleClass="btn btn-info"

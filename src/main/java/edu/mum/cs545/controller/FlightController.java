@@ -164,43 +164,6 @@ public class FlightController {
 
                     }
                 }
-
-//                if (!destination.equals("")) {
-//                    if (!tmpFlight.getDestination().equals(destination)) {
-//                        flights.remove(tmpFlight);
-//                        destination = "";
-//                    }
-//
-//                }
-//                if (!origin.equals("")) {
-//                    if (!tmpFlight.getAirline().equals(origin)) {
-//                        flights.remove(tmpFlight);
-//                        origin = "";
-//                    }
-//
-//                }
-//                if (!airline.equals("")) {
-//                    if (!tmpFlight.getAirline().equals(airline)) {
-//                        flights.remove(tmpFlight);
-//                        airline = "";
-//                    }
-//
-//                }
-//                if (!arrivalDate.equals("")) {
-//                    if (!tmpFlight.getArrivalDate().equals(arrivalDate)) {
-//                        flights.remove(tmpFlight);
-//                        arrivalDate = "";
-//                    }
-//
-//                }
-//                if (!departureDate.equals("")) {
-//                    if (!tmpFlight.getDepartureDate().equals(departureDate)) {
-//                        flights.remove(tmpFlight);
-//                        departureDate = "";
-//                    }
-//
-//                }
-
             }
 
             if (doFilter) {
