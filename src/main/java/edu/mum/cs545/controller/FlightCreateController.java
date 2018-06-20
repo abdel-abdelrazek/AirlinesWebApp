@@ -42,6 +42,7 @@ public class FlightCreateController {
     private String flightNum;
     private String arrivalTime;
     private String departureTime;
+    private String airlineName;
 
     private Logger logger = Logger.getLogger(getClass().getName());
 
@@ -56,8 +57,8 @@ public class FlightCreateController {
         arrivalDate = "21 June, 2018";
         doFilter = false;
         flightNum = "";
-        arrivalTime = "";
-        departureTime = "";
+        arrivalTime = "7:03:47 AM";
+        departureTime = "7:03:47 AM";
     }
 
     public List<Flight> getFlights() {
@@ -146,7 +147,7 @@ public class FlightCreateController {
         try {
 
             Flight flight = new Flight();
-            
+
             flight.setFlightnr(flightNum);
             //flight.setId(5215253);
             flight.setDepartureDate(departureDate);
@@ -158,15 +159,13 @@ public class FlightCreateController {
             Airport destination = airportService.findByCode(originCode);
             flight.setDestination(origin);
             flight.setOrigin(destination);
-//            //airline.addFlight(flight);
-//
-//
-//            Airplane airplane=airp
-//            Airplane airplane = new Airplane();
-//            airplane.setModel("X2F13");
-//            airplane.setCapacity(10);
-//            airplane.setId(122113);
-//            flight.setAirplane(airplane);
+
+            Airline airline = airlineService.findByName(airlineName);
+            flight.setAirline(airline);
+
+            flight.setAirplane(null);
+
+            flightService.create(flight);
 
         } catch (
                 Exception exc)
