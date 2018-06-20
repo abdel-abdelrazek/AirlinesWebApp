@@ -18,6 +18,9 @@
           <element id="library" level="project" name="Maven: org.eclipse.persistence:eclipselink:2.5.0" />
           <element id="library" level="project" name="Maven: org.eclipse.persistence:javax.persistence:2.1.0" />
           <element id="library" level="project" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">
