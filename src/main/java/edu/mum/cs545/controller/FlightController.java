@@ -152,11 +152,18 @@ public class FlightController {
                     origins.add(tmpFlight.getOrigin().getName());
                 }
 
-                if (tmpFlight.getAirline().getName().equals(airline) && tmpFlight.getDestination().getName().equals(destination) && tmpFlight.getOrigin().getName().equals(origin)&&tmpFlight.getDepartureDate().equals(departureDate)&&tmpFlight.getArrivalDate().equals(arrivalDate)) {
+                if (tmpFlight.getAirline().getName().equals(airline) && tmpFlight.getDestination().getName().equals(destination) && tmpFlight.getOrigin().getName().equals(origin)) {
 
-                    lstTmp.add(tmpFlight);
+                    try {
+                        if (tmpFlight.getDepartureDate().equals(departureDate) && tmpFlight.getArrivalDate().equals(arrivalDate)) {
+                            lstTmp.add(tmpFlight);
+                        }
+                    } catch (Exception exc) {
+
+                        lstTmp.add(tmpFlight);
+
+                    }
                 }
-
 
 //                if (!destination.equals("")) {
 //                    if (!tmpFlight.getDestination().equals(destination)) {
@@ -201,13 +208,17 @@ public class FlightController {
                 flights.addAll(lstTmp);
                 doFilter = false;
             }
-        } catch (Exception exc) {
+        } catch (
+                Exception exc)
+
+        {
             // send this to server logs
             logger.log(Level.SEVERE, "Error loading flights", exc);
 
             // add error message for JSF page
             addErrorMessage(exc);
         }
+
     }
 
     private void addErrorMessage(Exception exc) {

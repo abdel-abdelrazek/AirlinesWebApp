@@ -9,30 +9,8 @@
     <list default="true" id="76d0b04f-fd78-48e0-9f25-13ee26875a07" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/mum/cs545/controller/FlightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mum/cs545/controller/FlightController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/configuration/ClassBinder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/configuration/RestConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/dao/AirlineDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/dao/AirplaneDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/dao/AirportDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/dao/FlightDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/model/Airline.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/model/Airplane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/model/Airport.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/model/Flight.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/service/AirlineService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/service/AirplaneService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/service/AirportService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cs545/airline/service/FlightService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/cs545/controller/FlightController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/cs545/test/TestAirlineService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/cs545/test/TestAirplaneService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/cs545/test/TestAirportService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/cs545/test/TestFlightService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/cs545/ws/AirLineRest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/cs545/ws/HelloRest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/gf/workaround/CDIBeanManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/gf/workaround/JpaUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/gf/workaround/ResouceReleaseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/airlinesWebApp-0.0.1-SNAPSHOT/WEB-INF/classes/edu/mum/cs545/controller/FlightController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/airlinesWebApp-0.0.1-SNAPSHOT/WEB-INF/classes/edu/mum/cs545/controller/FlightController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/mum/cs545/controller/FlightController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/mum/cs545/controller/FlightController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,8 +25,8 @@
       <file leaf-file-name="flightInf.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/flightInf.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="209" lean-forward="true" selection-start-line="209" selection-end-line="209" />
+            <state relative-caret-position="3553">
+              <caret line="209" selection-start-line="209" selection-end-line="209" />
             </state>
           </provider>
         </entry>
@@ -56,8 +34,8 @@
       <file leaf-file-name="FlightController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/mum/cs545/controller/FlightController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+            <state relative-caret-position="64">
+              <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,6 +119,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,8 +251,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -453,15 +431,17 @@
       <workItem from="1529454631805" duration="1233000" />
       <workItem from="1529455905646" duration="5115000" />
       <workItem from="1529462440618" duration="13587000" />
-      <workItem from="1529476705575" duration="256000" />
+      <workItem from="1529476705575" duration="360000" />
+      <workItem from="1529505581525" duration="905000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29268000" />
+    <option name="totallyTimeSpent" value="30277000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5003903" side_tool="true" weight="0.3282313" />
@@ -476,7 +456,7 @@
       <window_info anchor="right" id="JSF" order="10" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39965987" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39965987" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32993197" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -484,7 +464,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960968" visible="true" weight="0.3282313" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960968" weight="0.3282313" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Persistence" order="2" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26151446" />
@@ -528,11 +508,21 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>tmpFlight.getDepartureDate()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tmpFlight.getDepartureDate().equals(departureDate)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>tmpFlight.getDestination()</expression-string>
         <language-id>JAVA</language-id>
@@ -897,15 +887,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/flightInf.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="209" lean-forward="true" selection-start-line="209" selection-end-line="209" />
+        <state relative-caret-position="3553">
+          <caret line="209" selection-start-line="209" selection-end-line="209" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/mum/cs545/controller/FlightController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+        <state relative-caret-position="64">
+          <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
