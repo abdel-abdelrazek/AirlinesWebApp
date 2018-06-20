@@ -152,7 +152,8 @@ public class FlightController {
                     origins.add(tmpFlight.getOrigin().getName());
                 }
 
-                if (tmpFlight.getAirline().getName().equals(airline) && tmpFlight.getDestination().getName().equals(destination) && tmpFlight.getOrigin().getName().equals(origin)) {
+                if (tmpFlight.getAirline().getName().equals(airline) && tmpFlight.getDestination().getName().equals(destination) && tmpFlight.getOrigin().getName().equals(origin)&&tmpFlight.getDepartureDate().equals(departureDate)&&tmpFlight.getArrivalDate().equals(arrivalDate)) {
+
                     lstTmp.add(tmpFlight);
                 }
 
