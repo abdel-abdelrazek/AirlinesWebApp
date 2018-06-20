@@ -15,7 +15,6 @@
     <title>Flights App</title>
 
     <h:outputStylesheet library="css" name="flightsTable.css"/>
-
 </h:head>
 
 <h:body>
@@ -104,36 +103,54 @@
 
             <h:form>
 
-                First name: <h:inputText value="#{backingBean.someDate}">
-                <f:convertDateTime pattern="yyyy-MM-dd"/>
-            </h:inputText>
+                <div class="form-group">
+                    <h:outputLabel value="Departure Date" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:inputText value="#{registrationBean.dateOfBirth}" styleClass="form-control datepicker"/>
+                    </div>
+                </div>
 
-                <br/><br/>
+                <div class="form-group">
+                    <h:outputLabel value="Arrival Date" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:inputText value="#{registrationBean.dateOfBirth}" styleClass="form-control datepicker"/>
+                    </div>
+                </div>
 
-                Last name: <h:inputText value="#{backingBean.someDate}">
-                <f:convertDateTime pattern="yyyy-MM-dd"/>
-            </h:inputText>
+                <!-- Last name: <h:inputText value="#{backingBean.someDate}">
+                 <f:convertDateTime pattern="yyyy-MM-dd"/>
+             </h:inputText>
 
-                <br/><br/>
+                 <br/><br/>
+            -->
+                <div class="form-group">
+                    <h:outputLabel value="Airline:" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:selectOneMenu styleClass="form-control  selectpicker" value="#{FlightController.airline}">
+                            <f:selectItems value="#{FlightController.airlines}" var="airline" itemValue="#{airline.id}"
+                                           itemLabel="#{airline.name}"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
 
-                Airline:
-                <h:selectOneMenu value="#{FlightController.airline}">
-                    <f:selectItems value="#{FlightController.airlines}" var="airline"  itemValue="#{airline.id}" itemLabel="#{airline.name}" />
-                </h:selectOneMenu>
+                <div class="form-group">
+                    <h:outputLabel value="Airline:" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:selectOneMenu styleClass="form-control  selectpicker" value="#{FlightController.origins}">
+                            <f:selectItems value="#{FlightController.origins}"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
 
-                <br/>
-                Departure:
-                <h:selectOneMenu value="#{FlightController.origin}">
-                    <f:selectItems value="#{FlightController.origins}"/>
-                </h:selectOneMenu>
-
-                <br/>
-                Destination:
-                <h:selectOneMenu value="#{FlightController.destination}">
-                    <f:selectItems value="#{FlightController.destinations}"/>
-                </h:selectOneMenu>
-
-                <br/>
+                <div class="form-group">
+                    <h:outputLabel value="Destination:" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:selectOneMenu styleClass="form-control  selectpicker"
+                                         value="#{FlightController.destination}">
+                            <f:selectItems value="#{FlightController.destinations}"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
 
                 <h:commandButton value="Submit" action="student_two_response"/>
 
@@ -144,7 +161,15 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></link>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous"></link>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <h:outputScript library="js" name="formatDatePicker.js"/>
+
 </h:body>
 </html>
