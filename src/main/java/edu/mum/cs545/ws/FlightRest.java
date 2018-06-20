@@ -38,13 +38,29 @@ public class FlightRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String update(Flight flight) {
-//		return 	flightService.update(flight);
 		try {
 			return myPapper.writeValueAsString(flightService.update(flight));
 		} catch (JsonProcessingException e) {
 			return e.getMessage();
 		}
 	}
+
+	@Path("create")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void create(Flight flight) {
+			flightService.create(flight);
+	}
+
+	@Path("delete")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void delete(Flight flight) {
+		flightService.delete(flight);
+	}
+
 
 	@Path("find")
 	@POST

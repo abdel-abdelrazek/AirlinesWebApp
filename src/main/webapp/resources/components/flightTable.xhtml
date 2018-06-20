@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<composite:interface>
+	<composite:attribute name="flights" />
+</composite:interface>
+<composite:implementation>
+	<h:dataTable value="#{cc.attrs.flights}" var="flight" styleClass="table table-striped table-bordered table-hover table-condensed">
+		<h:column>
+			<f:facet name="header">Flight Number</f:facet>
+			<h:outputText value="#{flight.flightnr}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Airline</f:facet>
+			<h:outputText value="#{flight.airline.name}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Departure Date</f:facet>
+			<h:outputText value="#{flight.departureDate}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Departure Time</f:facet>
+			<h:outputText value="#{flight.departureTime}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Arrival Date</f:facet>
+			<h:outputText value="#{flight.arrivalDate}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Arrival Time</f:facet>
+			<h:outputText value="#{flight.arrivalTime}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Origin Airport</f:facet>
+			<h:outputText value="#{flight.origin.name}">
+			</h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Destination Airport</f:facet>
+			<h:outputText value="#{flight.destination.name}">
+			</h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Airplaine Model</f:facet>
+			<h:outputText value="#{flight.airplane.model}">
+			</h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Airplaine Capacity</f:facet>
+			<h:outputText value="#{flight.airplane.capacity}">
+			</h:outputText>
+		</h:column>
+	</h:dataTable>
+</composite:implementation>
+
+</html>
