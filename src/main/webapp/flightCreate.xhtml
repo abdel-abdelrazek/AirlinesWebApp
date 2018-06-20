@@ -90,7 +90,9 @@
                     <div class="col-sm-3">
                         <h:selectOneMenu styleClass="form-control  selectpicker"
                                          value="#{FlightCreateController.airplaneSrNum}">
-                            <f:selectItems value="#{FlightCreateController.airplanes}"/>
+                            <f:selectItems value="#{FlightCreateController.airplanes}"  var="airplane"
+                                           itemValue="#{airplane.model}"
+                                           itemLabel="#{airplane.model}"/>
                         </h:selectOneMenu>
                     </div>
                 </div>
@@ -100,7 +102,9 @@
                     <div class="col-sm-3">
                         <h:selectOneMenu styleClass="form-control  selectpicker"
                                          value="#{FlightCreateController.originCode}">
-                            <f:selectItems value="#{FlightCreateController.origins}"/>
+                            <f:selectItems value="#{FlightCreateController.airports}" var="originVar"
+                                           itemValue="#{originVar.name}"
+                                           itemLabel="#{originVar.name}"/>
                         </h:selectOneMenu>
                     </div>
                 </div>
@@ -109,8 +113,10 @@
                     <h:outputLabel value="Destination:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
                         <h:selectOneMenu styleClass="form-control  selectpicker"
-                                         value="#{FlightCreateController.destination}">
-                            <f:selectItems value="#{FlightCreateController.destinations}"/>
+                                         value="#{FlightCreateController.destinationCode}">
+                            <f:selectItems value="#{FlightCreateController.airports}" var="destinationVar"
+                                           itemValue="#{destinationVar.name}"
+                                           itemLabel="#{destinationVar.name}"/>
                         </h:selectOneMenu>
                     </div>
                 </div>

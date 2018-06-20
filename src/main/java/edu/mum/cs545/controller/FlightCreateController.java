@@ -34,10 +34,9 @@ public class FlightCreateController {
     private AirplaneService airplaneService;
 
     private String originCode;
-    private List<String> airplanes;
+    private List<Airplane> airplanes;
     private List<Airline> airlines;
-    private List<String> destinations;
-    private List<String> origins;
+    private List<Airport> airports;
     private String destinationCode;
     private String arrivalDate;
     private String departureDate;
@@ -52,9 +51,8 @@ public class FlightCreateController {
 
     public FlightCreateController() throws Exception {
         flights = new ArrayList<>();
-        destinations = new ArrayList<>();
-        origins = new ArrayList<>();
         airplanes = new ArrayList<>();
+        airports = new ArrayList<>();
 
         originCode = "";
         destinationCode = "";
@@ -68,6 +66,10 @@ public class FlightCreateController {
         airlineName = "";
     }
 
+    public List<Airport> getAirports() {
+        return airports;
+    }
+
     public List<Flight> getFlights() {
         return flights;
     }
@@ -76,20 +78,8 @@ public class FlightCreateController {
         this.flights = flights;
     }
 
-    public List<String> getAirplanes() {
+    public List<Airplane> getAirplanes() {
         return airplanes;
-    }
-
-    public List<String> getDestinations() {
-        return destinations;
-    }
-
-    public List<String> getOrigins() {
-        return origins;
-    }
-
-    public void setOrigins(List<String> origins) {
-        this.origins = origins;
     }
 
     public List<Airline> getAirlines() {
@@ -153,12 +143,12 @@ public class FlightCreateController {
         this.departureDate = departureDate;
     }
 
-    public String getDestination() {
+    public String getDestinationCode() {
         return destinationCode;
     }
 
-    public void setDestination(String destination) {
-        this.destinationCode = destination;
+    public void setDestinationCode(String destinationCode) {
+        this.destinationCode = destinationCode;
     }
 
     public String getOriginCode() {
@@ -168,7 +158,6 @@ public class FlightCreateController {
     public void setOriginCode(String originCode) {
         this.originCode = originCode;
     }
-
 
     public void doCreate() {
         try {
@@ -181,10 +170,10 @@ public class FlightCreateController {
             flight.setDepartureTime(departureTime);
             flight.setArrivalTime(arrivalTime);
             flight.setArrivalDate(departureDate);
-            Airport origin = airportService.findByCode(destinationCode);
-            Airport destination = airportService.findByCode(originCode);
-            flight.setDestination(origin);
-            flight.setOrigin(destination);
+           List<Airport> origin = airportService.findByName(destinationCode);
+            List<Airport> destination = airportService.findByName(originCode);
+            flight.setDestination(origin.get(0));
+            flight.setOrigin(destination.get(0));
 
             Airline airline = airlineService.findByName(airlineName);
             flight.setAirline(airline);
@@ -213,44 +202,8 @@ public class FlightCreateController {
     public void loadData() {
 
         airlines = airlineService.findAll();
-
-        logger.info("Loading flights");
-
-        flights.clear();
-
-        try {
-
-            // get all students from database
-            flights = flightService.findAll();
-
-            for (Flight tmpFlight : flights) {
-                if (!destinations.contains(tmpFlight.getDestination().getAirportcode())) {
-
-                    destinations.add(tmpFlight.getDestination().getAirportcode());
-                }
-
-                if (!origins.contains(tmpFlight.getOrigin().getAirportcode())) {
-
-                    origins.add(tmpFlight.getOrigin().getAirportcode());
-                }
-
-                if (!airplanes.contains(tmpFlight.getAirplane().getModel())) {
-
-                    airplanes.add(tmpFlight.getAirplane().getModel());
-                }
-
-            }
-
-        } catch (
-                Exception exc)
-
-        {
-            // send this to server logs
-            logger.log(Level.SEVERE, "Error Loading Data", exc);
-
-            // add error message for JSF page
-            addErrorMessage(exc);
-        }
+        airports = airportService.findAll();
+        airplanes = airplaneService.findAll();
 
     }
 
