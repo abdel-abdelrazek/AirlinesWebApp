@@ -30,8 +30,15 @@
             <h:form id="frmFlights">
 
 
-                Pls Click The add button to add new airplane
 
+                <div class="form-group">
+                    <h:outputLabel value="Serial Number:" styleClass="control-label col-sm-2"/>
+                    <div class="col-sm-3">
+                        <h:inputText id="txtSerialNum" value="#{AirPlaneBean.serialnr}"
+                                     styleClass="form-control" required="true" label="capacity"/>
+                        <h:message for="txtSerialNum" styleClass="error"/>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col">

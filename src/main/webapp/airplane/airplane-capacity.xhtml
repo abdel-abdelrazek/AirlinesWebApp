@@ -49,14 +49,8 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <h:outputLabel value="Serial Number:" styleClass="control-label col-sm-2"/>
-                    <div class="col-sm-3">
-                        <h:inputText id="txtSerialNum" value="#{AirPlaneBean.serialnr}"
-                                     styleClass="form-control" required="true" label="capacity"/>
-                        <h:message for="txtSerialNum" styleClass="error"/>
-                    </div>
-                </div>
+                <h:outputText value="The serial bumber is :  #{AirPlaneBean.serialnr} " />
+
                 <div class="row">
                     <div class="col">
                         <h:commandButton value="Add Airplane" action="returnFromAirplaneFlow" styleClass="btn btn-success"/>
