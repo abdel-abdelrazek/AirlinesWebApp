@@ -53,3 +53,7 @@ html,body{
 	margin-bottom: 15px;
 	background: #cccccc;
 }
+
+.error{
+	color: red;
+}

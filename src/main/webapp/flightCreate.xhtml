@@ -37,8 +37,9 @@
                 <div class="form-group">
                     <h:outputLabel value="Departure Date:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
-                        <h:inputText value="#{FlightCreateController.departureDate}"
-                                     styleClass="form-control datepicker"/>
+                        <h:inputText id="dtDepartureDate" value="#{FlightCreateController.departureDate}"
+                                     styleClass="form-control datepicker" required="true" label="Departure Date"/>
+                        <h:message for="dtDepartureDate" styleClass="error"/>
                     </div>
                 </div>
 
@@ -52,8 +53,9 @@
                 <div class="form-group">
                     <h:outputLabel value="Departure Date:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
-                        <h:inputText value="#{FlightCreateController.departureDate}"
-                                     styleClass="form-control datepicker"/>
+                        <h:inputText id="dtArrivalDate" value="#{FlightCreateController.arrivalDate}"
+                                     styleClass="form-control datepicker" required="true" label="Arrival Date"/>
+                        <h:message for="dtArrivalDate" styleClass="error"/>
                     </div>
                 </div>
 
@@ -68,8 +70,9 @@
                 <div class="form-group">
                     <h:outputLabel value="Flight Number:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
-                        <h:inputText value="#{FlightCreateController.flightNum}"
-                                     styleClass="form-control"/>
+                        <h:inputText id="txtFlightNum" value="#{FlightCreateController.flightNum}"
+                                     styleClass="form-control" validator="#{flightValidator.validateFlightNumber}" label="Flight number"/>
+                        <h:message for="txtFlightNum" styleClass="error"/>
                     </div>
                 </div>
 
@@ -90,7 +93,7 @@
                     <div class="col-sm-3">
                         <h:selectOneMenu styleClass="form-control  selectpicker"
                                          value="#{FlightCreateController.airplaneSrNum}">
-                            <f:selectItems value="#{FlightCreateController.airplanes}"  var="airplane"
+                            <f:selectItems value="#{FlightCreateController.airplanes}" var="airplane"
                                            itemValue="#{airplane.model}"
                                            itemLabel="#{airplane.model}"/>
                         </h:selectOneMenu>
