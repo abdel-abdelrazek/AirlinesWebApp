@@ -4,6 +4,7 @@ import cs545.airline.model.Airplane;
 import cs545.airline.service.AirplaneService;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.flow.FlowScoped;
 import javax.inject.Inject;
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 
 @ManagedBean(name = "AirPlaneBean")
 @FlowScoped("airplane")
+@SessionScoped
 public class AirPlaneBean implements Serializable {
 
     @Inject

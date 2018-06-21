@@ -35,7 +35,9 @@
                     <h:outputLabel value="Serial Number:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
                         <h:inputText id="txtSerialNum" value="#{AirPlaneBean.serialnr}"
-                                     styleClass="form-control" required="true" label="capacity"/>
+                                     styleClass="form-control" required="true" label="capacity">
+                            <f:validateLongRange minimum="1" maximum="9999"></f:validateLongRange>
+                        </h:inputText>
                         <h:message for="txtSerialNum" styleClass="error"/>
                     </div>
                 </div>
