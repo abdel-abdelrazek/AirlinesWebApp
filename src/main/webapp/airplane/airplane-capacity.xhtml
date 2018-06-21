@@ -30,6 +30,8 @@
 
             <h:form id="frmFlights">
 
+                <h:outputText value="The serial bumber is :  #{AirPlaneBean.serialnr} "  styleClass="error"/>
+
                 <div class="form-group">
                     <h:outputLabel value="capacity:" styleClass="control-label col-sm-2"/>
                     <div class="col-sm-3">
@@ -48,8 +50,6 @@
                         <h:message for="txtModel" styleClass="error"/>
                     </div>
                 </div>
-
-                <h:outputText value="The serial bumber is :  #{AirPlaneBean.serialnr} "  styleClass="error"/>
 
                 <div class="row">
                     <div class="col">
