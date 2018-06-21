@@ -100,7 +100,8 @@
                         <f:facet name="header">Airplane Capacity</f:facet>
 
                         <!--  the value for each row -->
-                        #{tempFlight.airplane.capacity}
+                        <h:outputLabel value="#{tempFlight.airplane.capacity}" converter="flightConverter"
+                                     styleClass="form-control"/>
                     </h:column>
 
                     <h:column>
