@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:mum="http://xmlns.jcp.org/jsf/composite/components">
+
+<h:head>
+	<title>List of Flights</title>
+	<!-- Bootstrap core CSS -->
+    <h:outputStylesheet name="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+</h:head>
+<f:metadata>
+	<f:viewAction action="#{listFlightBean.getAllFlights()}"></f:viewAction>
+</f:metadata>
+<h:body>
+	<mum:menuComponent></mum:menuComponent>
+	<div class="container">
+		<!-- <h1>List of Flights</h1> -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">List of Flights</h3>
+			</div>
+			<div class="panel-body">
+				<h:form>
+					<div class="form-group row">
+						<h:outputLabel value="Airline" styleClass="col-sm-2 col-form-label"/>
+						<div class="col-sm-4">
+							<h:selectOneMenu value="#{listFlightBean.airlineId}" styleClass="form-control">
+								<f:selectItems value="#{listFlightBean.airlines}" var="item"
+								itemValue="#{item.id}" itemLabel="#{item.name}"></f:selectItems>
+							</h:selectOneMenu>
+						</div>
+						<h:outputLabel value="Destination" styleClass="col-sm-2 col-form-label"/>
+						<div class="col-sm-4">
+							<h:selectOneMenu value="#{listFlightBean.destinationId}" styleClass="form-control">
+								<f:selectItems value="#{listFlightBean.airports}" var="item"
+									itemValue="#{item.id}" itemLabel="#{item.name}"></f:selectItems>
+							</h:selectOneMenu>
+						</div>
+					</div>
+					<div class="form-group row">
+						<h:outputLabel value="Departure Date" styleClass="col-sm-2 col-form-label"/>
+						<div class="col-sm-4">
+							<h:inputText id="dateInput" value="#{listFlightBean.departureDate}" label="Date">
+								<f:convertDateTime pattern="MM/dd/yyyy" />
+							</h:inputText>
+						</div>
+						<h:outputLabel value="Departure Time" styleClass="col-sm-2 col-form-label"/>
+						<div class="col-sm-4">
+							<h:inputText id="timeInput" value="#{listFlightBean.departureTime}" label="Date">
+								<f:convertDateTime pattern="HH:mm" />
+							</h:inputText>
+						</div>
+					</div>
+					<div class="btn-toolbar">
+						<h:commandButton value="Search" actionListener="#{listFlightBean.search()}" styleClass="btn btn-primary">
+						</h:commandButton>
+						<h:commandButton value="Clear" actionListener="#{listFlightBean.clear()}" styleClass="btn btn-warning">
+						</h:commandButton>
+					</div>
+				</h:form>
+			</div>
+		</div>
+		<div>
+			<h:dataTable value="#{listFlightBean.flights}" var="flight" id="dtFlights" styleClass="table table-striped table-bordered table-hover table-condensed">
+				<h:column>
+					<f:facet name="header">Flight Number</f:facet>
+					<h:outputText value="#{flight.flightnr}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Airline</f:facet>
+					<h:outputText value="#{flight.airline.name}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Departure Date</f:facet>
+					<h:outputText value="#{flight.departureDate}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Departure Time</f:facet>
+					<h:outputText value="#{flight.departureTime}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Arrival Date</f:facet>
+					<h:outputText value="#{flight.arrivalDate}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Arrival Time</f:facet>
+					<h:outputText value="#{flight.arrivalTime}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Origin Airport</f:facet>
+					<h:outputText value="#{flight.origin}">
+						<f:converter converterId="airportConverter"></f:converter>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Destination Airport</f:facet>
+					<h:outputText value="#{flight.destination}">
+						<f:converter converterId="airportConverter"></f:converter>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Airplaine Model</f:facet>
+					<h:outputText value="#{flight.airplane.model}">
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Airplaine Capacity</f:facet>
+					<h:outputText value="#{flight.airplane.capacity}">
+					</h:outputText>
+				</h:column>
+			</h:dataTable>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <h:outputScript name="bootstrap-3.3.7-dist/js/bootstrap.min.js"/>
+</h:body>
+</html>
