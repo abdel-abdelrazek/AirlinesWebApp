@@ -3,8 +3,10 @@ D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\edu\mum\cs545\ws\AirportRest.ja
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\configuration\RestConfig.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\dao\AirplaneDao.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\edu\mum\gf\workaround\JpaUtil.java
+D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\bean\AirlineBean.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\configuration\ClassBinder.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\edu\mum\cs545\test\TestAirlineService.java
+D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\edu\mum\cs545\controller\FlightCreateController.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\dao\FlightDao.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\dao\AirlineDao.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\model\Airplane.java
@@ -15,6 +17,7 @@ D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\model\Flight.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\edu\mum\cs545\ws\HelloRest.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\service\AirplaneService.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\edu\mum\cs545\test\TestAirplaneService.java
+D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\edu\mum\cs545\ws\FlightRest.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\edu\mum\gf\workaround\CDIBeanManager.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\dao\AirportDao.java
 D:\MUM\WAA\project2\AirlinesWebApp\src\main\java\cs545\airline\service\AirportService.java

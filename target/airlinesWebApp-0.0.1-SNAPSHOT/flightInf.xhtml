@@ -2,6 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:waa="http://xmlns.jcp.org/jsf/composite/components">
 
 <f:metadata>
@@ -15,7 +16,6 @@
     <title>Flights App</title>
 
     <h:outputStylesheet library="css" name="flightsTable.css"/>
-
 </h:head>
 
 <h:body>
@@ -32,9 +32,10 @@
 
             <h:messages globalOnly="true"/>
 
-            <h:form>
+            <h:form id="frmFlights">
 
-                <h:dataTable value="#{FlightController.flights}" var="tempFlight"
+
+                <h:dataTable id="dtFlights" value="#{FlightController.flights}" var="tempFlight"
                              styleClass="demo-table"
                              headerClass="demo-table-header"
                              rowClasses="demo-table-odd-row,demo-table-even-row">
@@ -72,7 +73,7 @@
 
                     <h:column>
                         <!-- the column header -->
-                        <f:facet name="header">Destination airport name</f:facet>
+                        <f:facet name="header">Destination airport code</f:facet>
 
                         <!--  the value for each row -->
                         #{tempFlight.destination.name}
@@ -80,7 +81,7 @@
 
                     <h:column>
                         <!-- the column header -->
-                        <f:facet name="header">Destination airport name</f:facet>
+                        <f:facet name="header">Destination airport code</f:facet>
 
                         <!--  the value for each row -->
                         #{tempFlight.destination.airportcode}
@@ -99,11 +100,118 @@
                         <f:facet name="header">Airplane Capacity</f:facet>
 
                         <!--  the value for each row -->
-                        #{tempFlight.airplane.capacity}
+                        <h:outputLabel value="#{tempFlight.airplane.capacity}" converter="flightConverter"
+                                     styleClass="form-control"/>
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Departure date</f:facet>
+                        <!--  the value for each row -->
+                        <c:if test="#{not empty tempFlight.departureDate}">
+                            #{tempFlight.departureDate}
+                        </c:if>
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Departure time</f:facet>
+
+                        <!--  the value for each row -->
+                        <c:if test="#{not empty tempFlight.departureTime}">
+                            #{tempFlight.departureTime}
+                        </c:if>
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Arrival date</f:facet>
+
+                        <!--  the value for each row -->
+                        <c:if test="#{not empty tempFlight.arrivalDate}">
+                            #{tempFlight.arrivalDate}
+                        </c:if>
+                    </h:column>
+
+                    <h:column>
+                        <!-- the column header -->
+                        <f:facet name="header">Arrival time</f:facet>
+
+                        <!--  the value for each row -->
+                        <c:if test="#{not empty tempFlight.arrivalTime}">
+                            #{tempFlight.arrivalTime}
+                        </c:if>
                     </h:column>
 
                 </h:dataTable>
 
+                <div class="row">
+                    <div class="form-group">
+                        <h:outputLabel value="Departure Date:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:inputText value="#{FlightController.departureDate}"
+                                         styleClass="form-control datepicker"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Arrival Date:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:inputText value="#{FlightController.arrivalDate}" styleClass="form-control datepicker"/>
+                        </div>
+                    </div>
+
+                    <!-- Last name: <h:inputText value="#{backingBean.someDate}">
+                     <f:convertDateTime pattern="yyyy-MM-dd"/>
+                 </h:inputText>
+
+                     <br/><br/>
+                -->
+
+                    <div class="form-group">
+                        <h:outputLabel value="Airline Company:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:selectOneMenu styleClass="form-control  selectpicker"
+                                             value="#{FlightController.airline}">
+                                <f:selectItems value="#{FlightController.airlines}" var="airline"
+                                               itemValue="#{airline.name}"
+                                               itemLabel="#{airline.name}"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <h:outputLabel value="Origin:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:selectOneMenu styleClass="form-control  selectpicker" value="#{FlightController.origin}">
+                                <f:selectItems value="#{FlightController.origins}"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Destination:" styleClass="control-label col-sm-2"/>
+                        <div class="col-sm-12">
+                            <h:selectOneMenu styleClass="form-control  selectpicker"
+                                             value="#{FlightController.destination}">
+                                <f:selectItems value="#{FlightController.destinations}"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h:commandButton value="Filter" update="@form" styleClass="btn btn-info"
+                                         action="#{FlightController.doFilter()}"/>
+
+                    </div>
+                    <div class="col">
+                        <h:commandButton value="Show All" update="@form" styleClass="btn btn-success"
+                                         action="#{FlightController.showAll()}"/>
+
+                    </div>
+                </div>
             </h:form>
 
         </div>
@@ -111,7 +219,15 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></link>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous"></link>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <h:outputScript library="js" name="formatDatePicker.js"/>
+
 </h:body>
 </html>

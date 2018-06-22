@@ -10,7 +10,6 @@
 	<composite:attribute name="flights" />
 </composite:interface>
 <composite:implementation>
-	<!-- <strong>List of Flights:</strong> -->
 	<h:dataTable value="#{cc.attrs.flights}" var="flight" styleClass="table table-striped table-bordered table-hover table-condensed">
 		<h:column>
 			<f:facet name="header">Flight Number</f:facet>
@@ -38,14 +37,12 @@
 		</h:column>
 		<h:column>
 			<f:facet name="header">Origin Airport</f:facet>
-			<h:outputText value="#{flight.origin}">
-				<f:converter converterId="airportConverter"></f:converter>
+			<h:outputText value="#{flight.origin.name}">
 			</h:outputText>
 		</h:column>
 		<h:column>
 			<f:facet name="header">Destination Airport</f:facet>
-			<h:outputText value="#{flight.destination}">
-				<f:converter converterId="airportConverter"></f:converter>
+			<h:outputText value="#{flight.destination.name}">
 			</h:outputText>
 		</h:column>
 		<h:column>
